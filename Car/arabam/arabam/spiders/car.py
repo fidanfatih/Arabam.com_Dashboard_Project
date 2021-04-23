@@ -12,7 +12,7 @@ class CarSpider(scrapy.Spider):
                    'year': i.css('td.listing-text>div>a::text')[0].extract(),
                    'km': i.css('td.listing-text>div>a::text')[1].extract(),
                    'color': i.css('td.listing-text>div>a::text')[2].extract(),
-                   'price': i.css('td.pl8>div>span>a::text').extract()[0].strip(' TL'),
+                   'price': i.css('td.pl8>div>span>a::text').extract()[-1].strip(' TL'),
                    'province': i.css('td.listing-text>div>div>a>span::text')[0].extract(),
                    }
         next_page = 'https://www.arabam.com/ikinci-el/otomobil?page=' + str(CarSpider.page)
